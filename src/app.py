@@ -27,7 +27,7 @@ df = df.assign(price=lambda x: np.where(x.iloc[:, 10] >= 25, 'high', 'low'))
 df = df.assign(price_binary=lambda df: pd.get_dummies(df['price'], drop_first=True, dtype=int))
 # Initialize dashboard
 app = Dash(__name__)
-
+server=app.server
 app.layout = html.Div([
     html.H1("Boston Housing Data Analysis"),   # dashboard title
     html.H2("Select a Feature:"),
